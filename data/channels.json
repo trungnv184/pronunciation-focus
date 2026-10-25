@@ -3,8 +3,8 @@
     "handle": "@pronunciationwithemma",
     "title": "Pronunciation with Emma",
     "lang": "en",
-    "allPronunciation": true,
-    "note": "British and American pronunciation, IPA, minimal pairs."
+    "allPronunciation": false,
+    "note": "British and American pronunciation; also posts vocabulary and Q&A videos, so filtered by keywords."
   },
   {
     "handle": "@rachelsenglish",

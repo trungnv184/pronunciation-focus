@@ -1,0 +1,377 @@
+{
+  "kind": "youtube#videoListResponse",
+  "items": [
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa01",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "How to pronounce TH /θ/ and /ð/",
+        "description": "Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. Learn the TH sound step by step. ",
+        "publishedAt": "2026-09-01T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa01/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa01/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT12M5S"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa02",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "Ending sounds: -ED endings made easy",
+        "description": "Lesson: Ending sounds: -ED endings made easy",
+        "publishedAt": "2026-08-01T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa02/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa02/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT8M"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa03",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "My weekend vlog in London",
+        "description": "Lesson: My weekend vlog in London",
+        "publishedAt": "2026-08-15T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa03/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa03/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT10M"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa04",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "Word stress basics",
+        "description": "Lesson: Word stress basics",
+        "publishedAt": "2026-07-20T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa04/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa04/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT9M"
+      },
+      "status": {
+        "embeddable": false,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa05",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "Intonation in questions",
+        "description": "Lesson: Intonation in questions",
+        "publishedAt": "2026-07-10T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa05/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa05/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT7M",
+        "contentRating": {
+          "ytRating": "ytAgeRestricted"
+        }
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa06",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "Linking words in connected speech",
+        "description": "Lesson: Linking words in connected speech",
+        "publishedAt": "2026-06-20T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa06/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa06/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT11M",
+        "regionRestriction": {
+          "blocked": [
+            "VN",
+            "CN"
+          ]
+        }
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa07",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "LIVE: pronunciation Q&A",
+        "description": "Lesson: LIVE: pronunciation Q&A",
+        "publishedAt": "2026-10-20T10:00:00Z",
+        "liveBroadcastContent": "upcoming",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa07/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa07/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "P0D"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa08",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "The schwa explained",
+        "description": "Lesson: The schwa explained",
+        "publishedAt": "2026-06-10T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa08/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa08/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT6M",
+        "regionRestriction": {
+          "allowed": [
+            "US",
+            "GB"
+          ]
+        }
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa09",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "Minimal pairs: ship vs sheep",
+        "description": "Lesson: Minimal pairs: ship vs sheep",
+        "publishedAt": "2026-06-05T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa09/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa09/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT5M"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "unlisted"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "aaaaaaaaa10",
+      "snippet": {
+        "channelId": "UCfixture0000000000000o1",
+        "channelTitle": "Fixture One English",
+        "title": "R and L practice",
+        "description": "Lesson: R and L practice",
+        "publishedAt": "2026-07-01T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa10/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/aaaaaaaaa10/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT2M30S"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "bbbbbbbbb01",
+      "snippet": {
+        "channelId": "UCfixture0000000000000t2",
+        "channelTitle": "Fixture Two Phát Âm",
+        "title": "Lesson 12: silent letters",
+        "description": "Lesson: Lesson 12: silent letters",
+        "publishedAt": "2026-09-15T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bbbbbbbbb01/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bbbbbbbbb01/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT14M"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "bbbbbbbbb02",
+      "snippet": {
+        "channelId": "UCfixture0000000000000t2",
+        "channelTitle": "Fixture Two Phát Âm",
+        "title": "Nối âm trong tiếng Anh",
+        "description": "Lesson: Nối âm trong tiếng Anh",
+        "publishedAt": "2026-06-01T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bbbbbbbbb02/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bbbbbbbbb02/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT1H2M3S"
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "id": "bbbbbbbbb03",
+      "snippet": {
+        "channelId": "UCfixture0000000000000t2",
+        "channelTitle": "Fixture Two Phát Âm",
+        "title": "Cách sửa lỗi âm cuối",
+        "description": "Lesson: Cách sửa lỗi âm cuối",
+        "publishedAt": "2026-10-01T10:00:00Z",
+        "liveBroadcastContent": "none",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/bbbbbbbbb03/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/bbbbbbbbb03/mqdefault.jpg"
+          }
+        }
+      },
+      "contentDetails": {
+        "duration": "PT3M",
+        "regionRestriction": {
+          "allowed": [
+            "VN",
+            "US"
+          ]
+        }
+      },
+      "status": {
+        "embeddable": true,
+        "privacyStatus": "public"
+      }
+    }
+  ]
+}

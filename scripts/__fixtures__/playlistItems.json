@@ -1,0 +1,96 @@
+{
+  "UUfixture0000000000000o1|": {
+    "kind": "youtube#playlistItemListResponse",
+    "nextPageToken": "PAGE2",
+    "items": [
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa01"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa02"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa03"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa04"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa05"
+        }
+      }
+    ]
+  },
+  "UUfixture0000000000000o1|PAGE2": {
+    "kind": "youtube#playlistItemListResponse",
+    "items": [
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa06"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa07"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa08"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa09"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "aaaaaaaaa10"
+        }
+      }
+    ]
+  },
+  "UUfixture0000000000000t2|": {
+    "kind": "youtube#playlistItemListResponse",
+    "items": [
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "bbbbbbbbb01"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "bbbbbbbbb02"
+        }
+      },
+      {
+        "kind": "youtube#playlistItem",
+        "contentDetails": {
+          "videoId": "bbbbbbbbb03"
+        }
+      }
+    ]
+  }
+}
