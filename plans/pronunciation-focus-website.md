@@ -452,10 +452,10 @@ npm test && npm run typecheck && npm run build && npm run preview
 Manual, using a seed video: set A at 0:10 and B at 0:15, loop at 0.75x for 3 cycles. Let the video end and confirm the custom overlay shows. Deep-link reload works on the preview build. Open **every** seed video and replace any that won't play in the embed (Step 2's oEmbed check can't catch those).
 
 ### Exit criteria
-- The A–B loop and speed control work. Keyboard shortcuts work whenever focus is outside the iframe, and the hint explains this.
-- Nothing autoplays after the video ends; our overlay replaces the end screen.
-- Every seed video plays in the embed.
-- The `PracticePanel` and `VideoActions` stubs with the props above are merged.
+- [x] The A–B loop and speed control work. Keyboard shortcuts work whenever focus is outside the iframe, and the hint explains this.
+- [x] Nothing autoplays after the video ends; our overlay replaces the end screen.
+- [x] Every seed video plays in the embed.
+- [x] The `PracticePanel` and `VideoActions` stubs with the props above are merged.
 
 ---
 
