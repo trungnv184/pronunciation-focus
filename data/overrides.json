@@ -1,6 +1,26 @@
 {
   "include": [],
-  "exclude": [],
-  "addTags": {},
-  "removeTags": {}
+  "exclude": [
+    "OS6Afatl0gY"
+  ],
+  "addTags": {
+    "n3HE7JiRvcw": [
+      "minimal-pairs"
+    ],
+    "31q9KEjPi5I": [
+      "minimal-pairs"
+    ],
+    "nlxUX3171p8": [
+      "s-es-endings"
+    ],
+    "hrULMvxX5Sw": [
+      "diphthongs"
+    ]
+  },
+  "removeTags": {
+    "hrULMvxX5Sw": [
+      "short-long-vowels",
+      "schwa"
+    ]
+  }
 }

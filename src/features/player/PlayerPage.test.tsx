@@ -102,7 +102,7 @@ describe("PlayerPage", () => {
 
     expect(await screen.findByRole("button", { name: /Set A/ })).toBeEnabled();
     expect(lastPlayer().videoId).toBe("th000000002");
-    expect(screen.getByRole("heading", { name: /Shadowing/ })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: /Shadowing/ })).toBeInTheDocument(); // lazy-loaded
   });
 
   it("creates the player with the focus playerVars", async () => {

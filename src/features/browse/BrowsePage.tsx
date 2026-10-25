@@ -1,4 +1,4 @@
-import { useCallback, useId, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useVideoIndex } from "../../data/loadIndex";
 import type { Video } from "../../data/schema";
@@ -21,12 +21,15 @@ import {
 } from "./filters";
 import { FilterPanel } from "./FilterPanel";
 import { SORT_LABELS, activeFilterLabel } from "./labels";
+import Onboarding from "../onboarding/Onboarding";
 import { VideoCard } from "./VideoCard";
 import styles from "./BrowsePage.module.css";
 
 const SKELETON_CARDS = 6;
 /** Cards shown in the "Continue" row. */
 export const CONTINUE_LIMIT = 4;
+/** Cards rendered per "Show more" step; the full index has ~1000 videos. */
+export const PAGE_SIZE = 48;
 const filterKey = (f: ActiveFilter) => JSON.stringify(f);
 
 /** Channel titles in index order, then any extra titles found on videos. */
@@ -41,6 +44,7 @@ export default function BrowsePage() {
   return (
     <div className={styles.page}>
       <h1 className={styles.heading}>Videos phát âm · Pronunciation videos</h1>
+      <Onboarding />
       {state.status === "loading" && <LoadingState />}
       {state.status === "error" && <ErrorState error={state.error} onRetry={state.retry} />}
       {state.status === "ready" && (
@@ -70,6 +74,11 @@ function Browser({ videos, channels }: { videos: Video[]; channels: readonly { t
   const channelCounts = useMemo(() => facetedChannelCounts(videos, filters, options), [videos, filters, options]);
   const channelList = useMemo(() => channelTitles(channels, videos), [channels, videos]);
   const active = activeFilters(filters);
+
+  const [limit, setLimit] = useState(PAGE_SIZE);
+  const paramsKey = params.toString();
+  useEffect(() => setLimit(PAGE_SIZE), [paramsKey]);
+  const visible = results.slice(0, limit);
 
   const change = useCallback(
     (next: Filters, opts: { replace?: boolean } = {}) => {
@@ -121,7 +130,10 @@ function Browser({ videos, channels }: { videos: Video[]; channels: readonly { t
           onClose={closeSheet}
         />
 
-        <section className={styles.results} aria-label="Kết quả · Results">
+        <section className={styles.results} aria-labelledby="results-heading">
+          <h2 id="results-heading" className="visually-hidden">
+            Kết quả · Results
+          </h2>
           <div className={styles.toolbar}>
             <div className={styles.search}>
               <label htmlFor={searchId} className={styles.label}>
@@ -206,13 +218,22 @@ function Browser({ videos, channels }: { videos: Video[]; channels: readonly { t
               )}
             </div>
           ) : (
-            <ul className={styles.grid} aria-label="Danh sách video · Video list">
-              {results.map((video) => (
-                <li key={video.id}>
-                  <VideoCard video={video} done={doneIds.has(video.id)} />
-                </li>
-              ))}
-            </ul>
+            <>
+              <ul className={styles.grid} aria-label="Danh sách video · Video list">
+                {visible.map((video) => (
+                  <li key={video.id}>
+                    <VideoCard video={video} done={doneIds.has(video.id)} />
+                  </li>
+                ))}
+              </ul>
+              {results.length > visible.length && (
+                <div className={styles.more}>
+                  <button type="button" className={styles.secondaryButton} onClick={() => setLimit((n) => n + PAGE_SIZE)}>
+                    Xem thêm · Show more ({results.length - visible.length})
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </section>
       </div>

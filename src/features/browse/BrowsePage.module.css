@@ -226,3 +226,9 @@
 .continueGrid > li {
   min-width: 0;
 }
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-5);
+}

@@ -1,10 +1,13 @@
+import { lazy, Suspense } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import BrowsePage from "./features/browse/BrowsePage";
-import PlayerPage from "./features/player/PlayerPage";
-import ProgressPage from "./features/progress/ProgressPage";
-import AboutPage from "./features/about/AboutPage";
 import NotFound from "./components/NotFound";
 import styles from "./App.module.css";
+
+// The home page loads eagerly; everything else is split out of the first bundle.
+const PlayerPage = lazy(() => import("./features/player/PlayerPage"));
+const ProgressPage = lazy(() => import("./features/progress/ProgressPage"));
+const AboutPage = lazy(() => import("./features/about/AboutPage"));
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
@@ -12,6 +15,12 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
 export default function App() {
   return (
     <div className={styles.shell}>
+      <a href="#main" className={styles.skip} onClick={(e) => {
+        e.preventDefault();
+        document.getElementById("main")?.focus();
+      }}>
+        Bỏ qua đến nội dung · Skip to content
+      </a>
       <header className={styles.header}>
         <NavLink to="/" className={styles.brand} end>
           Luyện phát âm · Pronunciation Focus
@@ -31,17 +40,20 @@ export default function App() {
           </ul>
         </nav>
       </header>
-      <main className={styles.main}>
-        <Routes>
-          <Route path="/" element={<BrowsePage />} />
-          <Route path="/watch/:videoId" element={<PlayerPage />} />
-          <Route path="/progress" element={<ProgressPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <main id="main" tabIndex={-1} className={styles.main}>
+        <Suspense fallback={<p role="status">Đang tải… · Loading…</p>}>
+          <Routes>
+            <Route path="/" element={<BrowsePage />} />
+            <Route path="/watch/:videoId" element={<PlayerPage />} />
+            <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </main>
       <footer className={styles.footer}>
         <NavLink to="/about">Giới thiệu & quyền riêng tư · About & privacy</NavLink>
+        <p>Video thuộc về tác giả trên YouTube · Videos belong to their creators on YouTube</p>
       </footer>
     </div>
   );
