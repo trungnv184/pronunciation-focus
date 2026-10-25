@@ -4,7 +4,9 @@
     "noEmit": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2022",
-    "lib": ["ES2022"],
+    "lib": [
+      "ES2022"
+    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "strict": true,
@@ -12,7 +14,17 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ]
   },
-  "include": ["vite.config.ts", "scripts"]
+  "include": [
+    "vite.config.ts",
+    "scripts",
+    "src/data/**/*.ts"
+  ],
+  "exclude": [
+    "src/data/loadIndex.ts",
+    "src/data/**/*.test.ts"
+  ]
 }

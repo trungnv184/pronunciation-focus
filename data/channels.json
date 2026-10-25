@@ -1,0 +1,44 @@
+[
+  {
+    "handle": "@pronunciationwithemma",
+    "title": "Pronunciation with Emma",
+    "lang": "en",
+    "allPronunciation": true,
+    "note": "British and American pronunciation, IPA, minimal pairs."
+  },
+  {
+    "handle": "@rachelsenglish",
+    "title": "Rachel's English",
+    "lang": "en",
+    "allPronunciation": false,
+    "note": "American English pronunciation; also posts vlogs and conversation analysis, so filtered by keywords."
+  },
+  {
+    "handle": "@SoundsAmerican",
+    "title": "Sounds American",
+    "lang": "en",
+    "allPronunciation": true,
+    "note": "Short, focused American pronunciation lessons."
+  },
+  {
+    "handle": "@EnglishwithLucy",
+    "title": "English with Lucy",
+    "lang": "en",
+    "allPronunciation": false,
+    "note": "General English channel; only pronunciation lessons are kept."
+  },
+  {
+    "handle": "@mooneslphatamtienganh",
+    "title": "Moon ESL - Phát âm tiếng Anh",
+    "lang": "vi",
+    "allPronunciation": false,
+    "note": "Vietnamese-language channel; also posts general speaking-motivation clips, so filtered by keywords."
+  },
+  {
+    "handle": "@phatamhay",
+    "title": "Phát Âm Hay",
+    "lang": "vi",
+    "allPronunciation": false,
+    "note": "Vietnamese-language channel; mostly pronunciation, filtered by keywords."
+  }
+]
