@@ -6,6 +6,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { ZodType } from "zod";
+import { staleDataError } from "../src/data/freshness";
 import { ChannelListSchema, OverridesSchema, VideoIndexSchema } from "../src/data/schema";
 
 const root = resolve(fileURLToPath(import.meta.url), "../..");
@@ -49,6 +50,8 @@ function validateAll(): string[] {
     for (const id of duplicates(index.videos.map((v) => v.id))) {
       errors.push(`public/data/videos.json: duplicate video id ${id}`);
     }
+    const stale = staleDataError(index);
+    if (stale) errors.push(`public/data/videos.json: ${stale}`);
   }
   if (channels) {
     for (const h of duplicates(channels.map((c) => c.handle.toLowerCase()))) {
