@@ -4,3 +4,4 @@ dist
 *.local
 lh.json
 .DS_Store
+.claude/

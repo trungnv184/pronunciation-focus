@@ -1,0 +1,36 @@
+{
+  "fixtureone": {
+    "kind": "youtube#channelListResponse",
+    "items": [
+      {
+        "kind": "youtube#channel",
+        "id": "UCfixture0000000000000o1",
+        "snippet": {
+          "title": "Fixture One English"
+        },
+        "contentDetails": {
+          "relatedPlaylists": {
+            "uploads": "UUfixture0000000000000o1"
+          }
+        }
+      }
+    ]
+  },
+  "fixturetwo": {
+    "kind": "youtube#channelListResponse",
+    "items": [
+      {
+        "kind": "youtube#channel",
+        "id": "UCfixture0000000000000t2",
+        "snippet": {
+          "title": "Fixture Two Phát Âm"
+        },
+        "contentDetails": {
+          "relatedPlaylists": {
+            "uploads": "UUfixture0000000000000t2"
+          }
+        }
+      }
+    ]
+  }
+}
