@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "test": "vitest run",
-    "validate": "node -e \"process.exit(0)\""
+    "validate": "tsx scripts/validate-data.ts"
   },
   "license": "MIT",
   "dependencies": {

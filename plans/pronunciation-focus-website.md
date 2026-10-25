@@ -222,9 +222,9 @@ rm -rf /tmp/pf && mkdir -p /tmp/pf && cp -r dist /tmp/pf/pronunciation-focus && 
 After the push, wait for the Deploy workflow and then load `https://trungnv184.github.io/pronunciation-focus/` and `.../#/watch/test`.
 
 ### Exit criteria
-- The live Pages URL shows the header, and all stub routes work through hash links.
-- CI and Deploy are both green on `main`.
-- `package.json` already lists every dependency used in Steps 2–8.
+- [ ] The live Pages URL shows the header, and all stub routes work through hash links.
+- [x] CI and Deploy are both green on `main`.
+- [x] `package.json` already lists every dependency used in Steps 2–8.
 
 ---
 
@@ -276,9 +276,9 @@ for id in $(node -e 'require("./public/data/videos.json").videos.forEach(v=>cons
 ```
 
 ### Exit criteria
-- Schema, taxonomy, tagger, loader and seed are merged. `npm run validate` is part of CI.
-- Every seed video ID returns 200 from oEmbed.
-- All tagger tests pass.
+- [x] Schema, taxonomy, tagger, loader and seed are merged. `npm run validate` is part of CI.
+- [x] Every seed video ID returns 200 from oEmbed.
+- [x] All tagger tests pass.
 
 ---
 
@@ -592,3 +592,4 @@ On the live site, using a phone: onboarding → filter → loop → record → c
 |---|---|---|
 | 2026-10-24 | Plan created | blueprint |
 | 2026-10-24 | Adversarial review: fixed 3 critical, 10 major and 9 minor findings. Config inlined in Step 1, all dependencies and global CSS owned by Step 1, seed fields made optional, ingest moved to header auth with playability filters, partial-index guard and atomic writes, deploy prescribed via `workflow_call` with `ref: main`, keyboard-focus handling around the iframe, iOS mic and IndexedDB fixes, YouTube API attribution and 30-day freshness guard, mobile Lighthouse assertion. | blueprint review |
+| 2026-10-25 | Step 2: channel list set to 6 real channels (4 EN, 2 VI). Tagger additions beyond the brief: Unicode-aware `\b`, diacritic-free matching only for unaccented text, channel name stripped from titles, general "pronunciation" check on titles only, `NOT_A_LESSON` filter, `cleanDescription` + `findBoilerplateLines` (Step 3 must strip per-channel boilerplate before tagging). `tsconfig.node.json` also includes the pure `src/data/*.ts` modules. | step 2 |
