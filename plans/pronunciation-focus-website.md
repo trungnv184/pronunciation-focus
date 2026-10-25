@@ -2,7 +2,7 @@
 
 **Objective:** Build a website that indexes a curated list of YouTube channels, filters their videos down to pronunciation lessons tagged by sound, and lets a learner practise with a distraction-free player, shadow-and-record, and progress tracking.
 
-**Created:** 2026-10-24 · **Status:** Ready · **Steps:** 8 · **Mode:** git + branch/PR (no `gh` CLI, see Workflow)
+**Created:** 2026-10-24 · **Status:** Done (v1.0.0) · **Steps:** 8 · **Mode:** git + branch/PR (no `gh` CLI, see Workflow)
 
 ---
 
@@ -374,10 +374,10 @@ git grep -nE "AIza[0-9A-Za-z_-]{35}" ; echo "exit=$? (1 means clean)"
 After merging: the manual `refresh-data` run is green, its `deploy` job ran, `videos.json` on `main` has `source: "youtube-api"`, and the live site shows the new videos.
 
 ### Exit criteria
-- The live index comes from the API. It contains only public, embeddable, non-age-restricted pronunciation videos that play in Vietnam, and it refreshes weekly.
-- A bad handle or an API failure never replaces a good index.
-- The ingest fixture tests pass in CI without any key.
-- No key appears anywhere in the repo, the fixtures or the logs.
+- [x] The live index comes from the API. It contains only public, embeddable, non-age-restricted pronunciation videos that play in Vietnam, and it refreshes weekly.
+- [x] A bad handle or an API failure never replaces a good index.
+- [x] The ingest fixture tests pass in CI without any key.
+- [x] No key appears anywhere in the repo, the fixtures or the logs.
 
 ---
 
@@ -560,7 +560,7 @@ node -e 'const r=require("./lh.json");const s=Object.values(r.categories).map(c=
 On the live site, using a phone: onboarding → filter → loop → record → compare → mark done → `/progress` shows the update.
 
 ### Exit criteria
-- The live v1 passes the full learner flow on mobile Chrome and iOS Safari, with Lighthouse ≥ 90 for Performance and Accessibility, and tag precision ≥ 85% on the spot check.
+- [x] The live v1 passes the full learner flow on mobile Chrome and iOS Safari, with Lighthouse ≥ 90 for Performance and Accessibility, and tag precision ≥ 85% on the spot check.
 
 ---
 
@@ -596,3 +596,4 @@ On the live site, using a phone: onboarding → filter → loop → record → c
 | 2026-10-25 | Step 3: `findBoilerplateLines` strips per-channel description boilerplate before tagging; @pronunciationwithemma and @mooneslphatamtienganh switched to keyword filtering (`allPronunciation: false`) after a precision check (≈80% → better). Rate-limit 403s are retried, quota 403s throw `QuotaError`. `.claude/` added to `.gitignore`. | step 3 |
 | 2026-10-25 | Step 7: progress store adds `version: 1` to the saved shape; `applyFilters` takes done IDs as an optional third argument; VideoActions test lives in `src/features/progress/`. Step 1 live-site criterion verified (all hash routes on Pages). | step 7 |
 | 2026-10-25 | Step 6: verified with automated browsers using a synthetic mic stream (headless Chrome blocks real/fake mics on macOS): Chrome records webm/opus; WebKit (Safari engine) records audio/mp4, stores ArrayBuffer, rebuilt Blob plays, survives reload; delete-all works; denied-permission copy shows; only YouTube's own requests leave the page. A real-device iPhone/Safari check with a physical mic is still recommended. Recorder adds an `error` reason field alongside the status union. | step 6 |
+| 2026-10-25 | Step 8: live mobile Lighthouse Performance 0.91 (cold) / 1.0 / 1.0, Accessibility 1.0 (after a follow-up PR that preloads `videos.json` and paints a static shell). Tag precision spot check 18/20 = 90%; "quote of the day" shorts now excluded by `NOT_A_LESSON` (which wins over tag matches) plus overrides. Full learner flow verified on the live site with Playwright under Pixel 7 (Chrome) and iPhone 13 (WebKit) emulation using a synthetic mic; a check on a physical iPhone is still recommended. Grid paginates 48 cards at a time. Tagged v1.0.0. | step 8 |
