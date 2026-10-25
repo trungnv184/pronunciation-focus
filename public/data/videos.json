@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T16:21:30Z",
+  "generatedAt": "2026-10-25T16:49:52Z",
   "source": "youtube-api",
   "channels": [
     {
@@ -1739,18 +1739,6 @@
       "publishedAt": "2025-11-19T12:01:04Z",
       "durationSec": 27,
       "thumbnail": "https://i.ytimg.com/vi/SrvSm5wJFnw/mqdefault.jpg",
-      "tags": [],
-      "isShort": true
-    },
-    {
-      "id": "OS6Afatl0gY",
-      "channelId": "UCzheTEyrw1QHYxXjKWRowSw",
-      "channelTitle": "Moon ESL - Phát âm tiếng Anh",
-      "title": "MITESOL 2025: Vì sao giáo viên toàn cầu ngại dạy phát âm tiếng Anh?",
-      "description": "Video được hướng dẫn bởi Moon:\n- Thạc sỹ Ngôn ngữ Ứng dụng tốt nghiệp tại Mỹ, hiện đang sinh sống tại bang Iowa, USA. \n- Hướng dẫn tiếng Anh trên báo Vnexpress. \n- Thuyết trình hội thảo MI TESOL (Michigan, Mỹ, 2018) về: “Phương pháp dạy phát âm tiếng Anh hiệu quả cho người lớn”; hội thảo MI TESOL (Michigan, 2022) về: “Phương pháp giảng dạy phát âm tiếng Anh online”\n– Nghiên cứu \"Xu hướng dạy phát âm mới\" đăng trên tạp chí chuyên ngành giảng dạy tiếng Anh tại Hoa Kỳ. \n– Tác giả cuốn sách “Phương…",
-      "publishedAt": "2025-11-18T15:37:11Z",
-      "durationSec": 161,
-      "thumbnail": "https://i.ytimg.com/vi/OS6Afatl0gY/mqdefault.jpg",
       "tags": [],
       "isShort": true
     },
@@ -6149,7 +6137,9 @@
       "publishedAt": "2024-04-20T14:00:06Z",
       "durationSec": 165,
       "thumbnail": "https://i.ytimg.com/vi/nlxUX3171p8/mqdefault.jpg",
-      "tags": [],
+      "tags": [
+        "s-es-endings"
+      ],
       "isShort": true
     },
     {
@@ -6417,7 +6407,8 @@
       "durationSec": 54,
       "thumbnail": "https://i.ytimg.com/vi/31q9KEjPi5I/mqdefault.jpg",
       "tags": [
-        "ae-e"
+        "ae-e",
+        "minimal-pairs"
       ],
       "isShort": true
     },
@@ -6688,7 +6679,9 @@
       "publishedAt": "2024-03-19T09:20:39Z",
       "durationSec": 86,
       "thumbnail": "https://i.ytimg.com/vi/n3HE7JiRvcw/mqdefault.jpg",
-      "tags": [],
+      "tags": [
+        "minimal-pairs"
+      ],
       "isShort": true
     },
     {
@@ -7331,22 +7324,6 @@
       "isShort": false
     },
     {
-      "id": "QM0sNJejChM",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (16) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2024-01-11T01:00:10Z",
-      "durationSec": 29,
-      "thumbnail": "https://i.ytimg.com/vi/QM0sNJejChM/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "n4fFj35d-to",
       "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
       "channelTitle": "Phát Âm Hay",
@@ -7390,22 +7367,6 @@
         "ipa-basics"
       ],
       "isShort": false
-    },
-    {
-      "id": "XZGVcDkvc9U",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (15) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2024-01-05T01:00:22Z",
-      "durationSec": 29,
-      "thumbnail": "https://i.ytimg.com/vi/XZGVcDkvc9U/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
     },
     {
       "id": "0u5NRSjJzqI",
@@ -7456,22 +7417,6 @@
       "isShort": false
     },
     {
-      "id": "brpk55SahAI",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (14) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-12-30T02:00:24Z",
-      "durationSec": 29,
-      "thumbnail": "https://i.ytimg.com/vi/brpk55SahAI/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "-HD2pNawffI",
       "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
       "channelTitle": "Phát Âm Hay",
@@ -7504,22 +7449,6 @@
       "isShort": true
     },
     {
-      "id": "0nzfGUTYhXk",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (13) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-12-26T01:00:00Z",
-      "durationSec": 28,
-      "thumbnail": "https://i.ytimg.com/vi/0nzfGUTYhXk/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "K-bCk37oTvg",
       "channelId": "UCzheTEyrw1QHYxXjKWRowSw",
       "channelTitle": "Moon ESL - Phát âm tiếng Anh",
@@ -7544,54 +7473,6 @@
       "isShort": true
     },
     {
-      "id": "GJyzJ5boW8s",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (12) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-12-22T02:00:08Z",
-      "durationSec": 27,
-      "thumbnail": "https://i.ytimg.com/vi/GJyzJ5boW8s/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "LathLK1PYkw",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (11) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-12-19T02:00:14Z",
-      "durationSec": 28,
-      "thumbnail": "https://i.ytimg.com/vi/LathLK1PYkw/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "EgwuKCObAYo",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (10) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-12-16T17:00:10Z",
-      "durationSec": 28,
-      "thumbnail": "https://i.ytimg.com/vi/EgwuKCObAYo/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "SrRwOjOcIEw",
       "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
       "channelTitle": "Phát Âm Hay",
@@ -7606,22 +7487,6 @@
         "ipa-basics"
       ],
       "isShort": false
-    },
-    {
-      "id": "R9ls7HIXX7I",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (9) | Phát Âm Hay #shorts",
-      "description": "#phatamhay #podcast #podcastphatam #shadowing #pronunciation #englishpronunciation #phatamhay #phatamtienganh #phatamchuan #studywithmee #englishspeaking #speakenglish #hoctienganhonline #pronounceenglish\n#ngudieutienganh #hocngudieu #englishintonation #intonation #americanintonation #longtieng #hocphatam #phatamgiongmy #hoctienganh #learnonreels \n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm…",
-      "publishedAt": "2023-12-12T11:00:16Z",
-      "durationSec": 30,
-      "thumbnail": "https://i.ytimg.com/vi/R9ls7HIXX7I/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
     },
     {
       "id": "kBsE4eCww8w",
@@ -7656,22 +7521,6 @@
       "isShort": true
     },
     {
-      "id": "5S1LfB8SVMY",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (8) | Phát Âm Hay #shorts",
-      "description": "#phatamhay #podcast #podcastphatam #shadowing #pronunciation #englishpronunciation #phatamhay #phatamtienganh #phatamchuan #studywithmee #englishspeaking #speakenglish #hoctienganhonline #pronounceenglish\n#ngudieutienganh #hocngudieu #englishintonation #intonation #americanintonation #longtieng #hocphatam #phatamgiongmy #hoctienganh #learnonreels \n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm…",
-      "publishedAt": "2023-12-08T05:00:02Z",
-      "durationSec": 31,
-      "thumbnail": "https://i.ytimg.com/vi/5S1LfB8SVMY/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "CXiEs3Lbt78",
       "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
       "channelTitle": "Phát Âm Hay",
@@ -7688,81 +7537,6 @@
       "isShort": false
     },
     {
-      "id": "F5fhf1J-7jg",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (7) | Phát Âm Hay #shorts",
-      "description": "#phatamhay #podcast #podcastphatam #shadowing #pronunciation #englishpronunciation #phatamhay #phatamtienganh #phatamchuan #studywithmee #englishspeaking #speakenglish #hoctienganhonline #pronounceenglish\n#ngudieutienganh #hocngudieu #englishintonation #intonation #americanintonation #longtieng #hocphatam #phatamgiongmy #hoctienganh #learnonreels \n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm…",
-      "publishedAt": "2023-12-07T01:00:05Z",
-      "durationSec": 30,
-      "thumbnail": "https://i.ytimg.com/vi/F5fhf1J-7jg/mqdefault.jpg",
-      "tags": [
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "sJihdqBDpy8",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (6) | Phát Âm Hay #shorts",
-      "description": "#phatamhay #podcast #podcastphatam #shadowing #pronunciation #englishpronunciation #phatamhay #phatamtienganh #phatamchuan #studywithmee #englishspeaking #speakenglish #hoctienganhonline #pronounceenglish\n#ngudieutienganh #hocngudieu #englishintonation #intonation #americanintonation #longtieng #hocphatam #phatamgiongmy #hoctienganh #learnonreels \n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm…",
-      "publishedAt": "2023-12-05T01:00:21Z",
-      "durationSec": 28,
-      "thumbnail": "https://i.ytimg.com/vi/sJihdqBDpy8/mqdefault.jpg",
-      "tags": [
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "ZcrTdBxwGjc",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (5) | Phát Âm Hay #shorts",
-      "description": "#phatamhay #podcast #podcastphatam #shadowing #pronunciation #englishpronunciation #phatamhay #phatamtienganh #phatamchuan #studywithmee #englishspeaking #speakenglish #hoctienganhonline #pronounceenglish\n#ngudieutienganh #hocngudieu #englishintonation #intonation #americanintonation #longtieng #hocphatam #phatamgiongmy #hoctienganh #learnonreels \n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm…",
-      "publishedAt": "2023-12-03T20:00:10Z",
-      "durationSec": 29,
-      "thumbnail": "https://i.ytimg.com/vi/ZcrTdBxwGjc/mqdefault.jpg",
-      "tags": [
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "3MdMF-IP1DI",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (4) | Phát Âm Hay #shorts",
-      "description": "#phatamhay #podcast #podcastphatam #shadowing #pronunciation #englishpronunciation #phatamhay #phatamtienganh #phatamchuan #studywithmee #englishspeaking #speakenglish #hoctienganhonline #pronounceenglish\n#ngudieutienganh #hocngudieu #englishintonation #intonation #americanintonation #longtieng #hocphatam #phatamgiongmy #hoctienganh #learnonreels \n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm…",
-      "publishedAt": "2023-12-02T11:30:01Z",
-      "durationSec": 29,
-      "thumbnail": "https://i.ytimg.com/vi/3MdMF-IP1DI/mqdefault.jpg",
-      "tags": [
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "DJkwBq87WPM",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (3) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-12-01T02:00:04Z",
-      "durationSec": 32,
-      "thumbnail": "https://i.ytimg.com/vi/DJkwBq87WPM/mqdefault.jpg",
-      "tags": [
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "4OVY5sNnOpk",
       "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
       "channelTitle": "Phát Âm Hay",
@@ -7771,36 +7545,6 @@
       "publishedAt": "2023-11-30T02:00:02Z",
       "durationSec": 44,
       "thumbnail": "https://i.ytimg.com/vi/4OVY5sNnOpk/mqdefault.jpg",
-      "tags": [
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "9hk6cj0XfEI",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (2) | Phát Âm Hay #shorts",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-11-30T01:30:07Z",
-      "durationSec": 28,
-      "thumbnail": "https://i.ytimg.com/vi/9hk6cj0XfEI/mqdefault.jpg",
-      "tags": [
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "M3np0EeT3R8",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Quote of the day (1) | Phát Âm Hay",
-      "description": "-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lượng chủ yếu là sinh viên, người đi làm tại Việt Nam; du học sinh, người đi làm, người định cư tại các nước như Mỹ, Canada, Úc, Pháp, Singapore, Đài Loan, N…",
-      "publishedAt": "2023-11-29T02:00:07Z",
-      "durationSec": 33,
-      "thumbnail": "https://i.ytimg.com/vi/M3np0EeT3R8/mqdefault.jpg",
       "tags": [
         "intonation",
         "ipa-basics"
@@ -8403,22 +8147,6 @@
       "isShort": false
     },
     {
-      "id": "-D6yKMB0O00",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Lồng Tiếng: I Am The Ocean | Cô Diễm Lê | Phát Âm Hay",
-      "description": "Lồng tiếng: I Am The Ocean\n\nLồng tiếng là kĩ năng siêu hay, kết hợp cả phát âm + ngữ điệu + nối âm + lướt âm + bỏ âm, và cả học được từ vựng nữa.\n\nRáng tập lồng tiếng đi mn ơi, rồi một ngày nào đó giọng mình cũng sẽ siêu hay như giọng mẫu thôi.\n\n#phatamhay #podcast #podcastphatam #shadowing #pronunciation #englishpronunciation #phatamhay #phatamtienganh #phatamchuan #studywithmee #englishspeaking #speakenglish #hoctienganhonline #pronounceenglish\n#ngudieutienganh #hocngudieu #englishintonation…",
-      "publishedAt": "2023-10-08T02:00:00Z",
-      "durationSec": 107,
-      "thumbnail": "https://i.ytimg.com/vi/-D6yKMB0O00/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "kWlyELLS1n8",
       "channelId": "UCzheTEyrw1QHYxXjKWRowSw",
       "channelTitle": "Moon ESL - Phát âm tiếng Anh",
@@ -8507,22 +8235,6 @@
       "publishedAt": "2023-10-02T02:30:30Z",
       "durationSec": 40,
       "thumbnail": "https://i.ytimg.com/vi/lsf4GkweA8w/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "NpKGe4Yw_74",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Lồng Tiếng: Beauty & The Beast | Linh Ngân | Phát Âm Trung Cấp | Phát Âm Hay",
-      "description": "BÀI KIỂM TRA CUỐI KHÓA PHÁT ÂM TRUNG CẤP - LINH NGÂN\nLinh Ngân vừa hoàn thành khóa Phát âm trung cấp tại nhà Phát Âm Hay. Bài kiểm tra đầu vào của bạn thực sự không được tốt lắm, có khá nhiều lỗi phát âm ở trong bài. Tuy nhiên sau gần 4 tháng theo học, chăm chỉ luyện tập và thực hành, phát âm tiếng Anh của bạn ấy thực sự đã được cải thiện rất nhiều.\nChúng ta hãy cùng theo dõi video để xem trước và sau khi học phát âm của bạn ấy thay đổi như thế nào nhé!!!!\n--------------------------------------…",
-      "publishedAt": "2023-10-01T02:15:02Z",
-      "durationSec": 147,
-      "thumbnail": "https://i.ytimg.com/vi/NpKGe4Yw_74/mqdefault.jpg",
       "tags": [
         "linking-connected-speech",
         "intonation",
@@ -8625,22 +8337,6 @@
       "isShort": true
     },
     {
-      "id": "U6W-5Vk5JUc",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Lồng Tiếng: I Am Coral | Khánh Huyền | Phát Âm Trung Cấp | Phát Âm Hay",
-      "description": "THÀNH QUẢ XỨNG ĐÁNG CHO SỰ NỖ LỰC CỦA BẠN.\nSau đây là hành trình trước và sau của bạn Khánh Huyền sau khi học khóa Phát Âm Trung Cấp nhà Phát Âm Hay. Thật sự bạn rất siêng và giỏi. Hãy như siêng như Huyền nếu các bạn muốn phát âm tiếng Anh hay nhé! Và nếu có khó khăn gì, đừng lo, Phát Âm Hay sẽ giúp bạn!\n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ng…",
-      "publishedAt": "2023-09-25T02:00:12Z",
-      "durationSec": 113,
-      "thumbnail": "https://i.ytimg.com/vi/U6W-5Vk5JUc/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
       "id": "ZeRWIJ_DY0U",
       "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
       "channelTitle": "Phát Âm Hay",
@@ -8681,22 +8377,6 @@
       "publishedAt": "2023-09-22T14:30:08Z",
       "durationSec": 30,
       "thumbnail": "https://i.ytimg.com/vi/AfK2HyyLbh8/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "lemyrMptg2Q",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Lồng Tiếng: Rapunzel With Maximus | Khánh Huyền | Phát Âm Trung Cấp | Phát Âm Hay",
-      "description": "Đây chính là bài tập lồng tiếng của bạn Khánh Huyền, bạn ấy có chất giọng phát âm tiếng Anh rất hay đúng không cả nhà🥰\nMời mọi người cùng lắng nghe nhé🥰\n-----------------------------------------\nPHÁT ÂM HAY - AMERICAN PRONUNCIATION\n\n1. Phát Âm Hay là ai?\n\nPhát Âm Hay là lớp học chuyên đào tạo Phát âm theo giọng Mỹ được sáng lập bởi cô Lê Thị Ngọc Diễm. Khóa học đầu tiên vào tháng 7/2014 với mô hình lớp học không vượt quá 8 người, tính tới nay Phát Âm Hay đã đào tạo hơn 1500 học viên với số lư…",
-      "publishedAt": "2023-09-21T02:00:17Z",
-      "durationSec": 45,
-      "thumbnail": "https://i.ytimg.com/vi/lemyrMptg2Q/mqdefault.jpg",
       "tags": [
         "linking-connected-speech",
         "intonation",
@@ -8778,22 +8458,6 @@
       "publishedAt": "2023-09-18T08:00:18Z",
       "durationSec": 51,
       "thumbnail": "https://i.ytimg.com/vi/jH6yREXe7yY/mqdefault.jpg",
-      "tags": [
-        "linking-connected-speech",
-        "intonation",
-        "ipa-basics"
-      ],
-      "isShort": true
-    },
-    {
-      "id": "gvGbWArAs4k",
-      "channelId": "UCahB7LAQTT0_97BDxIHVU5Q",
-      "channelTitle": "Phát Âm Hay",
-      "title": "Lồng Tiếng: Coco | Bảo Châu | Phát Âm Trung Cấp | Phát Âm Hay",
-      "description": "HỌC SINH BÂY GIỜ GIỎI QUÁ HÀ\n\nĐây là giọng bạn Bảo Châu, học sinh lớp 11. Thực ra là mình không những thích giọng của bạn, mà mình còn thích cả thái độ học tập, làm việc chuyên nghiệp, làm không sót bài nào và tinh thần vô cùng cầu tiến.\n\nMình chắc chắn với tinh thần học tập trách nghiệm, chuyên nghiệp và khả năng học tập của bạn, bạn sẽ thuộc top 20% những bạn thành công sau này.\n\nChúng ta hãy cùng nghe giọng bạn Bảo Châu qua phần thể hiện Trailer trong film COCO nhé.\n-------------------------…",
-      "publishedAt": "2023-09-18T02:00:11Z",
-      "durationSec": 90,
-      "thumbnail": "https://i.ytimg.com/vi/gvGbWArAs4k/mqdefault.jpg",
       "tags": [
         "linking-connected-speech",
         "intonation",
@@ -10401,8 +10065,7 @@
       "durationSec": 73,
       "thumbnail": "https://i.ytimg.com/vi/hrULMvxX5Sw/mqdefault.jpg",
       "tags": [
-        "short-long-vowels",
-        "schwa"
+        "diphthongs"
       ],
       "isShort": true
     },
