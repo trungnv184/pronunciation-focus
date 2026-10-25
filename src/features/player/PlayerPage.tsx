@@ -1,16 +1,18 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { formatDuration } from "../../data/format";
 import { useVideoIndex } from "../../data/loadIndex";
 import type { Video } from "../../data/schema";
 import { TAG_BY_ID } from "../../data/taxonomy";
 import { NUDGE_SEC, nudgePoint, setPoint, shouldLoop, toSegment, type LoopPoints } from "./loop";
-import PracticePanel from "./PracticePanel";
 import { formatRate, orderRates, stepRate } from "./rates";
 import { nextVideoWithSameTag } from "./related";
 import { useYouTubePlayer } from "./useYouTubePlayer";
 import VideoActions from "./VideoActions";
 import styles from "./PlayerPage.module.css";
+
+// Recording code (MediaRecorder, IndexedDB) is only needed once the learner scrolls to practice.
+const PracticePanel = lazy(() => import("./PracticePanel"));
 
 const LOOP_POLL_MS = 200;
 
@@ -320,7 +322,9 @@ function FocusPlayer({ video, next }: { video: Video; next: Video | null }) {
         </section>
       </div>
 
-      <PracticePanel videoId={video.id} segment={segment} player={player} />
+      <Suspense fallback={<p role="status">Đang tải phần luyện nói… · Loading practice…</p>}>
+        <PracticePanel videoId={video.id} segment={segment} player={player} />
+      </Suspense>
     </article>
   );
 }
@@ -351,7 +355,7 @@ function PointControl({
         className={styles.chip}
         onClick={() => onNudge(-NUDGE_SEC)}
         disabled={value === null}
-        aria-label={`${label} lùi 1 giây · Move ${label} back 1 s`}
+        aria-label={`−1s: ${label} lùi 1 giây · Move ${label} back 1 s`}
       >
         −1s
       </button>
@@ -360,7 +364,7 @@ function PointControl({
         className={styles.chip}
         onClick={() => onNudge(NUDGE_SEC)}
         disabled={value === null}
-        aria-label={`${label} tiến 1 giây · Move ${label} forward 1 s`}
+        aria-label={`+1s: ${label} tiến 1 giây · Move ${label} forward 1 s`}
       >
         +1s
       </button>

@@ -4,8 +4,11 @@ import { normalize, stripMarks } from "./text";
 
 const GENERAL_PRONUNCIATION = /pronunciation|pronounc(e|ing)|accent|\bIPA\b|phonetics?|phát âm/i;
 
-/** Titles that mention pronunciation but are not lessons: course reviews, ads, dubbing contests. */
-const NOT_A_LESSON = /review khóa học|review cuối khóa|course review|testimonial|lồng tiếng|khai giảng/i;
+/**
+ * Titles that are never lessons, even if a keyword matched: course reviews, ads, dubbing
+ * contests, motivational quote shorts.
+ */
+const NOT_A_LESSON = /review khóa học|review cuối khóa|course review|testimonial|lồng tiếng|khai giảng|quote of the day/i;
 
 /**
  * `\b` in JS is ASCII-only, so in "thứ" it sees a boundary between "th" and "ứ".
@@ -126,9 +129,9 @@ export function isPronunciationVideo(
   input: TagInput & { tags: TagId[] },
   channel: Channel,
 ): boolean {
-  if (channel.allPronunciation || input.tags.length > 0) return true;
-  // Title only: channel footers ("master the American accent!") would match every upload.
   const p = prepare(input, channel);
   if (inTitle(NOT_A_LESSON_MATCHER, p.title, p.titleFolded)) return false;
+  if (channel.allPronunciation || input.tags.length > 0) return true;
+  // Title only: channel footers ("master the American accent!") would match every upload.
   return inTitle(GENERAL_MATCHER, p.title, p.titleFolded);
 }

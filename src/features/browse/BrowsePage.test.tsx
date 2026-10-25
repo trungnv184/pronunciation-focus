@@ -5,7 +5,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useVideoIndex, type VideoIndexState } from "../../data/loadIndex";
 import { fixtureIndex } from "../../test/fixtures/videoIndex";
 import { markStarted, reloadProgress, setDone } from "../progress/store";
-import BrowsePage from "./BrowsePage";
+import { ONBOARDING_KEY } from "../onboarding/Onboarding";
+import BrowsePage, { PAGE_SIZE } from "./BrowsePage";
 import { VideoCard } from "./VideoCard";
 
 vi.mock("../../data/loadIndex", () => ({ useVideoIndex: vi.fn() }));
@@ -37,6 +38,7 @@ const search = () => new URLSearchParams(screen.getByTestId("location").textCont
 describe("BrowsePage", () => {
   beforeEach(() => {
     localStorage.clear();
+    localStorage.setItem(ONBOARDING_KEY, "dismissed"); // onboarding has its own tests
     reloadProgress();
     mockedUseVideoIndex.mockReturnValue({ status: "ready", index: fixtureIndex, retry } as VideoIndexState);
   });
@@ -260,5 +262,27 @@ describe("VideoCard", () => {
       </MemoryRouter>,
     );
     expect(screen.getByText("Đã xong · Done")).toBeInTheDocument();
+  });
+});
+
+describe("BrowsePage pagination", () => {
+  beforeEach(() => localStorage.setItem(ONBOARDING_KEY, "dismissed"));
+
+  it("renders PAGE_SIZE cards and reveals more on demand", async () => {
+    const many = Array.from({ length: PAGE_SIZE + 5 }, (_, i) => ({
+      ...fixtureIndex.videos[0],
+      id: `pg${String(i).padStart(9, "0")}`,
+      title: `Video ${i}`,
+    }));
+    mockedUseVideoIndex.mockReturnValue({ status: "ready", index: { ...fixtureIndex, videos: many }, retry: () => {} });
+    render(
+      <MemoryRouter>
+        <BrowsePage />
+      </MemoryRouter>,
+    );
+    const grid = screen.getByRole("list", { name: /Video list/ });
+    expect(grid.children).toHaveLength(PAGE_SIZE);
+    await userEvent.click(screen.getByRole("button", { name: /Show more \(5\)/ }));
+    expect(grid.children).toHaveLength(PAGE_SIZE + 5);
   });
 });

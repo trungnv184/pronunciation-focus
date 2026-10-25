@@ -106,6 +106,13 @@ describe("isPronunciationVideo", () => {
     expect(isPron("Review Khóa Học | Ngọc Hoa | My Pronunciation Learning Journey", vi)).toBe(false);
   });
 
+  it("rejects non-lessons even when a keyword matched or the channel is all-pronunciation", () => {
+    const d = "Ngữ điệu và nối âm. Luyện ngữ điệu, nối âm mỗi ngày.";
+    expect(tags("Quote of the day (6)", vi, d).length).toBeGreaterThan(0);
+    expect(isPron("Quote of the day (6)", vi, d)).toBe(false);
+    expect(isPron("Quote of the day (7)", allPron)).toBe(false);
+  });
+
   it("accepts everything from an all-pronunciation channel", () => {
     expect(isPron("Silent letters in English", allPron)).toBe(true);
   });

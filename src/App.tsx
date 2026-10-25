@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
-import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import BrowsePage from "./features/browse/BrowsePage";
-import Onboarding from "./features/onboarding/Onboarding";
 import NotFound from "./components/NotFound";
 import styles from "./App.module.css";
 
@@ -14,7 +13,6 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
   isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
 
 export default function App() {
-  const { pathname } = useLocation();
   return (
     <div className={styles.shell}>
       <a href="#main" className={styles.skip} onClick={(e) => {
@@ -43,7 +41,6 @@ export default function App() {
         </nav>
       </header>
       <main id="main" tabIndex={-1} className={styles.main}>
-        {pathname === "/" && <Onboarding />}
         <Suspense fallback={<p role="status">Đang tải… · Loading…</p>}>
           <Routes>
             <Route path="/" element={<BrowsePage />} />
