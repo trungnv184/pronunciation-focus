@@ -12,6 +12,8 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="preconnect" href="https://i.ytimg.com" />
+    <!-- Start downloading the index in parallel with the JS bundle (loadIndex fetches the same URL). -->
+    <link rel="preload" href="./data/videos.json" as="fetch" type="application/json" crossorigin="anonymous" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:site_name" content="Luyện phát âm · Pronunciation Focus" />
@@ -29,6 +31,17 @@
     <link rel="stylesheet" crossorigin href="./assets/index-CNeUl5N5.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static shell painted before the JS loads; React replaces it on first render. -->
+      <div style="min-height: 100vh; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+        <div style="padding: 0.75rem 1rem; border-bottom: 1px solid #dcd8cf; font-weight: 700; font-size: 1.25rem">
+          Luyện phát âm · Pronunciation Focus
+        </div>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 1rem">
+          <h1 style="margin: 0 0 0.5rem; font-size: 1.75rem">Videos phát âm · Pronunciation videos</h1>
+          <p>Đang tải danh sách video… · Loading videos…</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
