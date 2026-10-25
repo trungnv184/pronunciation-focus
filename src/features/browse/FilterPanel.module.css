@@ -1,0 +1,243 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  position: sticky;
+  top: var(--space-4);
+  max-height: calc(100vh - 2 * var(--space-4));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.heading {
+  font-size: var(--font-size-lg);
+}
+
+.en {
+  color: var(--color-text-muted);
+  font-weight: 400;
+  font-size: var(--font-size-sm);
+}
+
+.fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  margin-bottom: var(--space-2);
+  padding: 0;
+  font-weight: 600;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  column-gap: var(--space-2);
+  align-items: center;
+  max-width: 100%;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  text-align: left;
+  line-height: 1.25;
+}
+
+.chip:hover {
+  border-color: var(--color-accent);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
+}
+
+.chip[data-empty] {
+  opacity: 0.6;
+}
+
+.chipVi {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.chipEn {
+  grid-column: 1;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.ipa {
+  font-family: var(--font-mono);
+}
+
+.chip .count {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.count {
+  min-width: 1.75em;
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: var(--space-1) var(--space-1);
+  border: 0;
+  border-left: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: var(--font-size-sm);
+  line-height: 1.25;
+}
+
+.segment:first-child {
+  border-left: 0;
+}
+
+.segment[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.segment[aria-pressed="true"] .en {
+  color: inherit;
+}
+
+/* Keep the focus ring visible inside the clipped segmented control. */
+.segment:focus-visible {
+  outline-offset: -3px;
+}
+
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  cursor: pointer;
+}
+
+.checkRow input {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  accent-color: var(--color-accent);
+}
+
+.channelName {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.clearButton,
+.closeButton,
+.showButton {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.clearButton {
+  align-self: flex-start;
+}
+
+.clearButton:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.showButton {
+  width: 100%;
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+}
+
+.sheetOnly,
+.backdrop {
+  display: none;
+}
+
+/* ── mobile: bottom sheet ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .panel {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-height: 85vh;
+    padding-bottom: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: var(--shadow-md);
+  }
+
+  .panel.open {
+    display: flex;
+  }
+
+  .sheetOnly {
+    display: block;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    z-index: 19;
+    inset: 0;
+    background: rgb(0 0 0 / 0.45);
+  }
+
+  .footer {
+    position: sticky;
+    bottom: 0;
+    margin: 0 calc(-1 * var(--space-4));
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+}

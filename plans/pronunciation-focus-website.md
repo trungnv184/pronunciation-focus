@@ -408,8 +408,8 @@ npm test && npm run typecheck && npm run build && npm run preview
 Manual: pick "th-sounds" plus "short", reload the page and confirm the filters stay. Search "am cuoi" and confirm it finds "âm cuối". Check at 375px width with no horizontal scroll.
 
 ### Exit criteria
-- Filtering, search, sort and URL sync work against the seed data, and the tests pass.
-- Usable on mobile; every control can be reached and used by keyboard.
+- [x] Filtering, search, sort and URL sync work against the seed data, and the tests pass.
+- [x] Usable on mobile; every control can be reached and used by keyboard.
 
 ---
 
