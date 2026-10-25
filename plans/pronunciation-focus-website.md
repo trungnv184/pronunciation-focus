@@ -490,8 +490,8 @@ Manual:
 - **Mic denied:** the helpful error shows.
 
 ### Exit criteria
-- The shadowing loop works in Chrome and Safari. Recordings survive a reload and can be deleted.
-- No network requests carry audio (check the DevTools Network tab).
+- [x] The shadowing loop works in Chrome and Safari. Recordings survive a reload and can be deleted.
+- [x] No network requests carry audio (check the DevTools Network tab).
 
 ---
 
@@ -595,3 +595,4 @@ On the live site, using a phone: onboarding → filter → loop → record → c
 | 2026-10-25 | Step 2: channel list set to 6 real channels (4 EN, 2 VI). Tagger additions beyond the brief: Unicode-aware `\b`, diacritic-free matching only for unaccented text, channel name stripped from titles, general "pronunciation" check on titles only, `NOT_A_LESSON` filter, `cleanDescription` + `findBoilerplateLines` (Step 3 must strip per-channel boilerplate before tagging). `tsconfig.node.json` also includes the pure `src/data/*.ts` modules. | step 2 |
 | 2026-10-25 | Step 3: `findBoilerplateLines` strips per-channel description boilerplate before tagging; @pronunciationwithemma and @mooneslphatamtienganh switched to keyword filtering (`allPronunciation: false`) after a precision check (≈80% → better). Rate-limit 403s are retried, quota 403s throw `QuotaError`. `.claude/` added to `.gitignore`. | step 3 |
 | 2026-10-25 | Step 7: progress store adds `version: 1` to the saved shape; `applyFilters` takes done IDs as an optional third argument; VideoActions test lives in `src/features/progress/`. Step 1 live-site criterion verified (all hash routes on Pages). | step 7 |
+| 2026-10-25 | Step 6: verified with automated browsers using a synthetic mic stream (headless Chrome blocks real/fake mics on macOS): Chrome records webm/opus; WebKit (Safari engine) records audio/mp4, stores ArrayBuffer, rebuilt Blob plays, survives reload; delete-all works; denied-permission copy shows; only YouTube's own requests leave the page. A real-device iPhone/Safari check with a physical mic is still recommended. Recorder adds an `error` reason field alongside the status union. | step 6 |
