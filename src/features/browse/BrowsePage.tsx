@@ -2,6 +2,8 @@ import { useCallback, useId, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useVideoIndex } from "../../data/loadIndex";
 import type { Video } from "../../data/schema";
+import { continueList, doneIds as getDoneIds } from "../progress/stats";
+import { useProgress } from "../progress/store";
 import {
   SORTS,
   activeFilters,
@@ -23,6 +25,8 @@ import { VideoCard } from "./VideoCard";
 import styles from "./BrowsePage.module.css";
 
 const SKELETON_CARDS = 6;
+/** Cards shown in the "Continue" row. */
+export const CONTINUE_LIMIT = 4;
 const filterKey = (f: ActiveFilter) => JSON.stringify(f);
 
 /** Channel titles in index order, then any extra titles found on videos. */
@@ -56,9 +60,14 @@ function Browser({ videos, channels }: { videos: Video[]; channels: readonly { t
   const searchId = useId();
   const sortId = useId();
 
-  const results = useMemo(() => applyFilters(videos, filters), [videos, filters]);
-  const tagCounts = useMemo(() => facetedTagCounts(videos, filters), [videos, filters]);
-  const channelCounts = useMemo(() => facetedChannelCounts(videos, filters), [videos, filters]);
+  const progress = useProgress();
+  const doneIds = useMemo(() => getDoneIds(progress), [progress]);
+  const continueItems = useMemo(() => continueList(videos, progress).slice(0, CONTINUE_LIMIT), [videos, progress]);
+  const options = useMemo(() => ({ doneIds }), [doneIds]);
+
+  const results = useMemo(() => applyFilters(videos, filters, options), [videos, filters, options]);
+  const tagCounts = useMemo(() => facetedTagCounts(videos, filters, options), [videos, filters, options]);
+  const channelCounts = useMemo(() => facetedChannelCounts(videos, filters, options), [videos, filters, options]);
   const channelList = useMemo(() => channelTitles(channels, videos), [channels, videos]);
   const active = activeFilters(filters);
 
@@ -84,114 +93,130 @@ function Browser({ videos, channels }: { videos: Video[]; channels: readonly { t
       : active[active.length - 1];
 
   return (
-    <div className={styles.layout}>
-      <FilterPanel
-        id={panelId}
-        filters={filters}
-        onChange={change}
-        channels={channelList}
-        tagCounts={tagCounts}
-        channelCounts={channelCounts}
-        resultCount={results.length}
-        open={sheetOpen}
-        onClose={closeSheet}
-      />
-
-      <section className={styles.results} aria-label="Kết quả · Results">
-        <div className={styles.toolbar}>
-          <div className={styles.search}>
-            <label htmlFor={searchId} className={styles.label}>
-              Tìm kiếm · Search
-            </label>
-            <input
-              id={searchId}
-              type="search"
-              className={styles.input}
-              value={filters.q}
-              placeholder="vd. âm cuối, th…"
-              autoComplete="off"
-              onChange={(e) => change({ ...filters, q: e.target.value }, { replace: true })}
-            />
-          </div>
-          <div className={styles.sort}>
-            <label htmlFor={sortId} className={styles.label}>
-              Sắp xếp · Sort
-            </label>
-            <select
-              id={sortId}
-              className={styles.input}
-              value={filters.sort}
-              onChange={(e) => change({ ...filters, sort: e.target.value as Sort })}
-            >
-              {SORTS.map((s) => (
-                <option key={s} value={s}>
-                  {SORT_LABELS[s]}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        <div className={styles.summary}>
-          <p className={styles.count} role="status" aria-live="polite">
-            {results.length} / {videos.length} video · Showing {results.length} of {videos.length} videos
-          </p>
-          <button
-            ref={toggleRef}
-            type="button"
-            className={styles.filterToggle}
-            aria-expanded={sheetOpen}
-            aria-controls={panelId}
-            onClick={() => setSheetOpen(true)}
-          >
-            Bộ lọc · Filters{active.length > 0 ? ` (${active.length})` : ""}
-          </button>
-        </div>
-
-        {results.length === 0 ? (
-          <div className={styles.empty}>
-            <h2 className={styles.emptyTitle}>Không có video phù hợp · No matching videos</h2>
-            {active.length === 0 ? (
-              <p>
-                Chưa có video nào. <span className={styles.en}>There are no videos yet.</span>
-              </p>
-            ) : (
-              <p>
-                Thử bỏ bớt một bộ lọc. <span className={styles.en}>Try removing a filter.</span>
-              </p>
-            )}
-            {active.length > 0 && (
-            <div className={styles.emptyActions}>
-              {lastFilter && active.length > 1 && (
-                <button
-                  type="button"
-                  className={styles.primaryButton}
-                  onClick={() => change(removeFilter(filters, lastFilter))}
-                >
-                  Bỏ lọc cuối · Remove last filter: {activeFilterLabel(lastFilter, filters)}
-                </button>
-              )}
-              <button
-                type="button"
-                className={active.length > 1 ? styles.secondaryButton : styles.primaryButton}
-                onClick={() => change(clearFilters(filters))}
-              >
-                Xóa bộ lọc · Clear all
-              </button>
-            </div>
-            )}
-          </div>
-        ) : (
-          <ul className={styles.grid} aria-label="Danh sách video · Video list">
-            {results.map((video) => (
+    <>
+      {continueItems.length > 0 && (
+        <section className={styles.continue} aria-labelledby="continue-heading">
+          <h2 id="continue-heading" className={styles.continueTitle}>
+            Tiếp tục xem <span className={styles.en}>· Continue</span>
+          </h2>
+          <ul className={styles.continueGrid} aria-label="Tiếp tục xem · Continue watching">
+            {continueItems.map((video) => (
               <li key={video.id}>
                 <VideoCard video={video} />
               </li>
             ))}
           </ul>
-        )}
-      </section>
-    </div>
+        </section>
+      )}
+      <div className={styles.layout}>
+        <FilterPanel
+          id={panelId}
+          filters={filters}
+          onChange={change}
+          channels={channelList}
+          tagCounts={tagCounts}
+          channelCounts={channelCounts}
+          resultCount={results.length}
+          open={sheetOpen}
+          onClose={closeSheet}
+        />
+
+        <section className={styles.results} aria-label="Kết quả · Results">
+          <div className={styles.toolbar}>
+            <div className={styles.search}>
+              <label htmlFor={searchId} className={styles.label}>
+                Tìm kiếm · Search
+              </label>
+              <input
+                id={searchId}
+                type="search"
+                className={styles.input}
+                value={filters.q}
+                placeholder="vd. âm cuối, th…"
+                autoComplete="off"
+                onChange={(e) => change({ ...filters, q: e.target.value }, { replace: true })}
+              />
+            </div>
+            <div className={styles.sort}>
+              <label htmlFor={sortId} className={styles.label}>
+                Sắp xếp · Sort
+              </label>
+              <select
+                id={sortId}
+                className={styles.input}
+                value={filters.sort}
+                onChange={(e) => change({ ...filters, sort: e.target.value as Sort })}
+              >
+                {SORTS.map((s) => (
+                  <option key={s} value={s}>
+                    {SORT_LABELS[s]}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className={styles.summary}>
+            <p className={styles.count} role="status" aria-live="polite">
+              {results.length} / {videos.length} video · Showing {results.length} of {videos.length} videos
+            </p>
+            <button
+              ref={toggleRef}
+              type="button"
+              className={styles.filterToggle}
+              aria-expanded={sheetOpen}
+              aria-controls={panelId}
+              onClick={() => setSheetOpen(true)}
+            >
+              Bộ lọc · Filters{active.length > 0 ? ` (${active.length})` : ""}
+            </button>
+          </div>
+
+          {results.length === 0 ? (
+            <div className={styles.empty}>
+              <h2 className={styles.emptyTitle}>Không có video phù hợp · No matching videos</h2>
+              {active.length === 0 ? (
+                <p>
+                  Chưa có video nào. <span className={styles.en}>There are no videos yet.</span>
+                </p>
+              ) : (
+                <p>
+                  Thử bỏ bớt một bộ lọc. <span className={styles.en}>Try removing a filter.</span>
+                </p>
+              )}
+              {active.length > 0 && (
+              <div className={styles.emptyActions}>
+                {lastFilter && active.length > 1 && (
+                  <button
+                    type="button"
+                    className={styles.primaryButton}
+                    onClick={() => change(removeFilter(filters, lastFilter))}
+                  >
+                    Bỏ lọc cuối · Remove last filter: {activeFilterLabel(lastFilter, filters)}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  className={active.length > 1 ? styles.secondaryButton : styles.primaryButton}
+                  onClick={() => change(clearFilters(filters))}
+                >
+                  Xóa bộ lọc · Clear all
+                </button>
+              </div>
+              )}
+            </div>
+          ) : (
+            <ul className={styles.grid} aria-label="Danh sách video · Video list">
+              {results.map((video) => (
+                <li key={video.id}>
+                  <VideoCard video={video} done={doneIds.has(video.id)} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
+    </>
   );
 }
 

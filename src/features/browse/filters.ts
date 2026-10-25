@@ -5,7 +5,10 @@ import { fold } from "../../data/text";
 /**
  * Browse filters. Pure functions only: no React, no DOM.
  *
- * To add a field (Step 7 adds `hideDone`): extend `Filters` and `DEFAULT_FILTERS`, handle it in
+ * Progress-aware filtering (`hideDone`) takes the done IDs through `FilterOptions`, so these
+ * functions never read storage.
+ *
+ * To add a field: extend `Filters` and `DEFAULT_FILTERS`, handle it in
  * `matchesFilters`, add a URL key in `filtersToSearchParams` / `searchParamsToFilters`, and add an
  * entry in `activeFilters` / `removeFilter` so the "remove last filter" and "clear all" UI see it.
  */
@@ -24,6 +27,14 @@ export type Filters = {
   q: string;
   sort: Sort;
   hideShorts: boolean;
+  /** Hide videos the learner marked done (needs `FilterOptions.doneIds`). */
+  hideDone: boolean;
+};
+
+/** Inputs that don't live in the URL. */
+export type FilterOptions = {
+  /** IDs of videos marked done, from the progress store. */
+  doneIds?: ReadonlySet<string>;
 };
 
 export const DEFAULT_FILTERS: Readonly<Filters> = Object.freeze({
@@ -33,6 +44,7 @@ export const DEFAULT_FILTERS: Readonly<Filters> = Object.freeze({
   q: "",
   sort: "newest",
   hideShorts: false,
+  hideDone: false,
 });
 
 /** Bucket edges in seconds: short < 5 min, medium 5–15 min, long > 15 min. */
@@ -72,12 +84,14 @@ function tagsByGroup(tags: readonly TagId[]): TagId[][] {
   return [...groups.values()];
 }
 
-function matcher(filters: Filters): (video: Video) => boolean {
+function matcher(filters: Filters, options: FilterOptions): (video: Video) => boolean {
+  const doneIds = filters.hideDone ? options.doneIds : undefined;
   const tagGroups = tagsByGroup(filters.tags);
   const channels = new Set(filters.channels);
   const terms = searchTerms(filters.q);
   return (video) => {
     if (filters.hideShorts && video.isShort) return false;
+    if (doneIds?.has(video.id)) return false;
     if (filters.duration !== "any" && durationBucket(video.durationSec) !== filters.duration) return false;
     if (channels.size > 0 && !channels.has(video.channelTitle)) return false;
     if (!tagGroups.every((group) => group.some((id) => video.tags.includes(id)))) return false;
@@ -94,8 +108,8 @@ function compareShortest(a: Video, b: Video): number {
 }
 
 /** Filters and sorts. Returns a new array; the input is not mutated. */
-export function applyFilters(videos: readonly Video[], filters: Filters): Video[] {
-  const kept = videos.filter(matcher(filters));
+export function applyFilters(videos: readonly Video[], filters: Filters, options: FilterOptions = {}): Video[] {
+  const kept = videos.filter(matcher(filters, options));
   return kept.sort(filters.sort === "shortest" ? compareShortest : compareNewest);
 }
 
@@ -113,16 +127,20 @@ export function tagCounts(videos: readonly Video[]): Partial<Record<TagId, numbe
  * other active filter. Tags in a group are OR-ed, so a group's own selection is ignored when
  * counting that group; otherwise picking one chip would zero out its siblings.
  */
-export function facetedTagCounts(videos: readonly Video[], filters: Filters): Partial<Record<TagId, number>> {
+export function facetedTagCounts(
+  videos: readonly Video[],
+  filters: Filters,
+  options: FilterOptions = {},
+): Partial<Record<TagId, number>> {
   const result: Partial<Record<TagId, number>> = {};
-  const base = tagCounts(applyFilters(videos, filters));
+  const base = tagCounts(applyFilters(videos, filters, options));
   const selectedGroups = new Set(filters.tags.map((id) => TAG_BY_ID[id].group));
   for (const [id, n] of Object.entries(base) as [TagId, number][]) {
     if (!selectedGroups.has(TAG_BY_ID[id].group)) result[id] = n;
   }
   for (const group of selectedGroups) {
     const withoutGroup = { ...filters, tags: filters.tags.filter((id) => TAG_BY_ID[id].group !== group) };
-    const counts = tagCounts(applyFilters(videos, withoutGroup));
+    const counts = tagCounts(applyFilters(videos, withoutGroup, options));
     for (const [id, n] of Object.entries(counts) as [TagId, number][]) {
       if (TAG_BY_ID[id].group === group) result[id] = n;
     }
@@ -131,9 +149,13 @@ export function facetedTagCounts(videos: readonly Video[], filters: Filters): Pa
 }
 
 /** Per-channel counts given every other active filter (the channel selection itself is ignored). */
-export function facetedChannelCounts(videos: readonly Video[], filters: Filters): Record<string, number> {
+export function facetedChannelCounts(
+  videos: readonly Video[],
+  filters: Filters,
+  options: FilterOptions = {},
+): Record<string, number> {
   const counts: Record<string, number> = {};
-  for (const video of applyFilters(videos, { ...filters, channels: [] })) {
+  for (const video of applyFilters(videos, { ...filters, channels: [] }, options)) {
     counts[video.channelTitle] = (counts[video.channelTitle] ?? 0) + 1;
   }
   return counts;
@@ -146,11 +168,13 @@ export type ActiveFilter =
   | { kind: "channel"; title: string }
   | { kind: "duration" }
   | { kind: "q" }
-  | { kind: "hideShorts" };
+  | { kind: "hideShorts" }
+  | { kind: "hideDone" };
 
 /** Active filters in the order they were most likely added. Sort is not a filter. */
 export function activeFilters(filters: Filters): ActiveFilter[] {
   const active: ActiveFilter[] = [];
+  if (filters.hideDone) active.push({ kind: "hideDone" });
   if (filters.hideShorts) active.push({ kind: "hideShorts" });
   if (filters.duration !== "any") active.push({ kind: "duration" });
   for (const title of filters.channels) active.push({ kind: "channel", title });
@@ -171,6 +195,8 @@ export function isFilterActive(filters: Filters, f: ActiveFilter): boolean {
       return filters.q.trim() !== "";
     case "hideShorts":
       return filters.hideShorts;
+    case "hideDone":
+      return filters.hideDone;
   }
 }
 
@@ -186,6 +212,8 @@ export function removeFilter(filters: Filters, f: ActiveFilter): Filters {
       return { ...filters, q: DEFAULT_FILTERS.q };
     case "hideShorts":
       return { ...filters, hideShorts: DEFAULT_FILTERS.hideShorts };
+    case "hideDone":
+      return { ...filters, hideDone: DEFAULT_FILTERS.hideDone };
   }
 }
 
@@ -207,7 +235,7 @@ export function toggleChannel(filters: Filters, title: string): Filters {
 }
 
 // ── URL ─────────────────────────────────────────────────────────────────────
-// Keys: tags (comma list), ch (repeated; titles may contain commas), dur, q, sort, shorts=hide.
+// Keys: tags (comma list), ch (repeated; titles may contain commas), dur, q, sort, shorts=hide, done=hide.
 // Defaults are omitted, so the unfiltered page is a bare `#/`.
 
 export function filtersToSearchParams(filters: Filters): URLSearchParams {
@@ -218,6 +246,7 @@ export function filtersToSearchParams(filters: Filters): URLSearchParams {
   if (filters.q.trim() !== "") params.set("q", filters.q);
   if (filters.sort !== DEFAULT_FILTERS.sort) params.set("sort", filters.sort);
   if (filters.hideShorts) params.set("shorts", "hide");
+  if (filters.hideDone) params.set("done", "hide");
   return params;
 }
 
@@ -245,5 +274,6 @@ export function searchParamsToFilters(params: URLSearchParams): Filters {
     q: params.get("q") ?? DEFAULT_FILTERS.q,
     sort: oneOf(SORTS, params.get("sort"), DEFAULT_FILTERS.sort),
     hideShorts: params.get("shorts") === "hide",
+    hideDone: params.get("done") === "hide",
   };
 }

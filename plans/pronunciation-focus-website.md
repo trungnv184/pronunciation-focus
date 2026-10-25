@@ -222,7 +222,7 @@ rm -rf /tmp/pf && mkdir -p /tmp/pf && cp -r dist /tmp/pf/pronunciation-focus && 
 After the push, wait for the Deploy workflow and then load `https://trungnv184.github.io/pronunciation-focus/` and `.../#/watch/test`.
 
 ### Exit criteria
-- [ ] The live Pages URL shows the header, and all stub routes work through hash links.
+- [x] The live Pages URL shows the header, and all stub routes work through hash links.
 - [x] CI and Deploy are both green on `main`.
 - [x] `package.json` already lists every dependency used in Steps 2–8.
 
@@ -517,8 +517,8 @@ npm test && npm run typecheck && npm run build && npm run preview
 Manual: open 3 videos, mark 2 done, reload, and check that the badges, the Continue row and the streak are correct. Export, reset and import restore everything. Two tabs stay in sync.
 
 ### Exit criteria
-- Progress persists and drives the browse badges, the "hide done" filter and the `/progress` page.
-- Nothing breaks when storage is unavailable.
+- [x] Progress persists and drives the browse badges, the "hide done" filter and the `/progress` page.
+- [x] Nothing breaks when storage is unavailable.
 
 ---
 
@@ -594,3 +594,4 @@ On the live site, using a phone: onboarding → filter → loop → record → c
 | 2026-10-24 | Adversarial review: fixed 3 critical, 10 major and 9 minor findings. Config inlined in Step 1, all dependencies and global CSS owned by Step 1, seed fields made optional, ingest moved to header auth with playability filters, partial-index guard and atomic writes, deploy prescribed via `workflow_call` with `ref: main`, keyboard-focus handling around the iframe, iOS mic and IndexedDB fixes, YouTube API attribution and 30-day freshness guard, mobile Lighthouse assertion. | blueprint review |
 | 2026-10-25 | Step 2: channel list set to 6 real channels (4 EN, 2 VI). Tagger additions beyond the brief: Unicode-aware `\b`, diacritic-free matching only for unaccented text, channel name stripped from titles, general "pronunciation" check on titles only, `NOT_A_LESSON` filter, `cleanDescription` + `findBoilerplateLines` (Step 3 must strip per-channel boilerplate before tagging). `tsconfig.node.json` also includes the pure `src/data/*.ts` modules. | step 2 |
 | 2026-10-25 | Step 3: `findBoilerplateLines` strips per-channel description boilerplate before tagging; @pronunciationwithemma and @mooneslphatamtienganh switched to keyword filtering (`allPronunciation: false`) after a precision check (≈80% → better). Rate-limit 403s are retried, quota 403s throw `QuotaError`. `.claude/` added to `.gitignore`. | step 3 |
+| 2026-10-25 | Step 7: progress store adds `version: 1` to the saved shape; `applyFilters` takes done IDs as an optional third argument; VideoActions test lives in `src/features/progress/`. Step 1 live-site criterion verified (all hash routes on Pages). | step 7 |
