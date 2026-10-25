@@ -30,5 +30,7 @@ export function activeFilterLabel(f: ActiveFilter, filters: Filters): string {
       return `“${filters.q.trim()}”`;
     case "hideShorts":
       return "Ẩn Shorts · Hide Shorts";
+    case "hideDone":
+      return "Ẩn video đã xong · Hide done";
   }
 }

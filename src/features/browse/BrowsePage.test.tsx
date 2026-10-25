@@ -1,9 +1,10 @@
-import { cleanup, render, screen, within } from "@testing-library/react";
+import { act, cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, useLocation } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useVideoIndex, type VideoIndexState } from "../../data/loadIndex";
 import { fixtureIndex } from "../../test/fixtures/videoIndex";
+import { markStarted, reloadProgress, setDone } from "../progress/store";
 import BrowsePage from "./BrowsePage";
 import { VideoCard } from "./VideoCard";
 
@@ -35,6 +36,8 @@ const search = () => new URLSearchParams(screen.getByTestId("location").textCont
 
 describe("BrowsePage", () => {
   beforeEach(() => {
+    localStorage.clear();
+    reloadProgress();
     mockedUseVideoIndex.mockReturnValue({ status: "ready", index: fixtureIndex, retry } as VideoIndexState);
   });
   afterEach(() => {
@@ -146,6 +149,65 @@ describe("BrowsePage", () => {
     await user.keyboard("{Escape}");
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     expect(toggle).toHaveFocus();
+  });
+
+  it("shows the done badge on cards the learner finished", () => {
+    setDone("th000000001", true);
+    renderPage();
+    const doneCard = within(grid()).getByRole("link", { name: /How to Pronounce TH/ });
+    expect(within(doneCard).getByText("Đã xong · Done")).toBeInTheDocument();
+    expect(within(grid()).getAllByText("Đã xong · Done")).toHaveLength(1);
+  });
+
+  it("hides done videos with the Hide done toggle and writes done=hide", async () => {
+    const user = userEvent.setup();
+    setDone("th000000001", true);
+    setDone("ed000000001", true);
+    renderPage();
+    const toggle = screen.getByRole("checkbox", { name: /Hide done/ });
+    expect(toggle).not.toBeChecked();
+
+    await user.click(toggle);
+    expect(cards()).toHaveLength(10);
+    expect(search().get("done")).toBe("hide");
+    expect(screen.queryByText("Đã xong · Done")).not.toBeInTheDocument();
+
+    await user.click(toggle);
+    expect(cards()).toHaveLength(12);
+    expect(search().get("done")).toBeNull();
+  });
+
+  it("reads done=hide from the URL and updates when progress changes", () => {
+    setDone("th000000001", true);
+    renderPage("/?done=hide");
+    expect(screen.getByRole("checkbox", { name: /Hide done/ })).toBeChecked();
+    expect(cards()).toHaveLength(11);
+    act(() => setDone("th000000002", true));
+    expect(cards()).toHaveLength(10);
+  });
+
+  it("shows a Continue row for started-but-not-done videos, most recent first", () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-10-20T10:00:00Z"));
+    markStarted("rl000000001");
+    vi.setSystemTime(new Date("2026-10-21T10:00:00Z"));
+    markStarted("in000000001");
+    markStarted("th000000001");
+    setDone("th000000001", true);
+    vi.useRealTimers();
+
+    renderPage();
+    const row = screen.getByRole("list", { name: /Continue watching/ });
+    const links = within(row).getAllByRole("link");
+    expect(links.map((l) => l.getAttribute("href"))).toEqual(["/watch/in000000001", "/watch/rl000000001"]);
+    expect(screen.getByRole("heading", { name: /Tiếp tục xem/ })).toBeInTheDocument();
+    // the main grid is unaffected
+    expect(cards()).toHaveLength(12);
+  });
+
+  it("has no Continue row without started videos", () => {
+    renderPage();
+    expect(screen.queryByRole("list", { name: /Continue watching/ })).not.toBeInTheDocument();
   });
 
   it("shows a loading skeleton", () => {

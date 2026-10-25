@@ -6,6 +6,7 @@ import {
   applyFilters,
   clearFilters,
   durationBucket,
+  facetedChannelCounts,
   facetedTagCounts,
   filtersToSearchParams,
   isFilterActive,
@@ -113,6 +114,34 @@ describe("applyFilters", () => {
     expect(kept.every((v) => !v.isShort)).toBe(true);
   });
 
+  describe("hide done", () => {
+    const doneIds = new Set(["th000000001", "fc000000001", "not-in-index"]);
+
+    it("removes done videos when doneIds are passed in", () => {
+      const kept = applyFilters(fixtureVideos, f({ hideDone: true }), { doneIds });
+      expect(kept).toHaveLength(fixtureVideos.length - 2);
+      expect(kept.some((v) => doneIds.has(v.id))).toBe(false);
+    });
+
+    it("keeps done videos when the filter is off", () => {
+      expect(applyFilters(fixtureVideos, f({}), { doneIds })).toHaveLength(fixtureVideos.length);
+    });
+
+    it("is a no-op without doneIds (applyFilters stays pure)", () => {
+      expect(applyFilters(fixtureVideos, f({ hideDone: true }))).toHaveLength(fixtureVideos.length);
+    });
+
+    it("combines with other filters and feeds the faceted counts", () => {
+      expect(applyFilters(fixtureVideos, f({ hideDone: true, tags: ["th-sounds"] }), { doneIds }).map((v) => v.id)).toEqual([
+        "th000000002",
+      ]);
+      const counts = facetedTagCounts(fixtureVideos, f({ hideDone: true }), { doneIds });
+      expect(counts["th-sounds"]).toBe(1);
+      expect(counts["final-consonants"]).toBe(1);
+      expect(facetedChannelCounts(fixtureVideos, f({ hideDone: true }), { doneIds })["Pronunciation with Emma"]).toBe(2);
+    });
+  });
+
   describe("sort", () => {
     it("newest first, videos without publishedAt last", () => {
       const out = ids({});
@@ -163,6 +192,14 @@ describe("active filters", () => {
     expect(activeFilters(f({ duration: "long", q: "x", hideShorts: true }))).toHaveLength(3);
   });
 
+  it("treats hideDone as an active filter that can be removed and cleared", () => {
+    const filters = f({ hideDone: true, sort: "shortest" });
+    expect(activeFilters(filters)).toEqual([{ kind: "hideDone" }]);
+    expect(isFilterActive(filters, { kind: "hideDone" })).toBe(true);
+    expect(removeFilter(filters, { kind: "hideDone" }).hideDone).toBe(false);
+    expect(clearFilters(filters).hideDone).toBe(false);
+  });
+
   it("removes one filter and clears all but sort", () => {
     const filters = f({ tags: ["th-sounds", "r-l"], duration: "short", sort: "shortest" });
     const removed = removeFilter(filters, { kind: "tag", id: "r-l" });
@@ -191,6 +228,7 @@ describe("URL params", () => {
         q: "phát âm",
         sort: "shortest",
         hideShorts: true,
+        hideDone: true,
       }),
     );
     expect(params.get("tags")).toBe("th-sounds,ed-endings");
@@ -199,6 +237,7 @@ describe("URL params", () => {
     expect(params.get("q")).toBe("phát âm");
     expect(params.get("sort")).toBe("shortest");
     expect(params.get("shorts")).toBe("hide");
+    expect(params.get("done")).toBe("hide");
   });
 
   it("round-trips", () => {
@@ -209,10 +248,17 @@ describe("URL params", () => {
       q: "âm cuối",
       sort: "shortest",
       hideShorts: true,
+      hideDone: true,
     });
     const url = filtersToSearchParams(filters).toString();
     expect(searchParamsToFilters(new URLSearchParams(url))).toEqual(filters);
     expect(searchParamsToFilters(filtersToSearchParams(DEFAULT_FILTERS))).toEqual(DEFAULT_FILTERS);
+  });
+
+  it("round-trips hideDone as done=hide", () => {
+    expect(filtersToSearchParams(f({ hideDone: true })).toString()).toBe("done=hide");
+    expect(searchParamsToFilters(new URLSearchParams("done=hide"))).toEqual(f({ hideDone: true }));
+    expect(searchParamsToFilters(new URLSearchParams("done=show")).hideDone).toBe(false);
   });
 
   it("parses the plan's example URL", () => {
@@ -222,7 +268,7 @@ describe("URL params", () => {
 
   it("drops unknown tags, duplicates and invalid values", () => {
     const filters = searchParamsToFilters(
-      new URLSearchParams("tags=th-sounds,nope,,th-sounds&tags=r-l&dur=huge&sort=oldest&shorts=yes"),
+      new URLSearchParams("tags=th-sounds,nope,,th-sounds&tags=r-l&dur=huge&sort=oldest&shorts=yes&done=1"),
     );
     expect(filters).toEqual(f({ tags: ["th-sounds", "r-l"] }));
   });

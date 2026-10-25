@@ -145,6 +145,22 @@ export function FilterPanel({
           </label>
         </fieldset>
 
+        <fieldset className={styles.fieldset}>
+          <legend className={styles.legend}>
+            Tiến độ <span className={styles.en}>· Progress</span>
+          </legend>
+          <label className={styles.checkRow}>
+            <input
+              type="checkbox"
+              checked={filters.hideDone}
+              onChange={(e) => onChange({ ...filters, hideDone: e.target.checked })}
+            />
+            <span>
+              Ẩn video đã xong <span className={styles.en}>· Hide done</span>
+            </span>
+          </label>
+        </fieldset>
+
         {channels.length > 0 && (
           <fieldset className={styles.fieldset}>
             <legend className={styles.legend}>
