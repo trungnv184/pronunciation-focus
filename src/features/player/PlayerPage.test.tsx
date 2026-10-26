@@ -29,6 +29,8 @@ type FakePlayer = {
 };
 
 let currentTime = 0;
+const DEFAULT_RATES = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2];
+let reportedRates: number[] = DEFAULT_RATES;
 let players: Array<{ player: FakePlayer; events: FakeEvents; videoId: string }> = [];
 
 function installFakeYT() {
@@ -43,7 +45,7 @@ function installFakeYT() {
       seekTo: vi.fn(),
       getCurrentTime: vi.fn(() => currentTime),
       setPlaybackRate: vi.fn(),
-      getAvailablePlaybackRates: vi.fn(() => [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2]),
+      getAvailablePlaybackRates: vi.fn(() => reportedRates),
       destroy: vi.fn(),
     };
     players.push({ player, events: opts.events, videoId: opts.videoId });
@@ -71,6 +73,7 @@ const ready = (): VideoIndexState => ({ status: "ready", index: fixtureIndex, re
 
 beforeEach(() => {
   currentTime = 0;
+  reportedRates = DEFAULT_RATES;
   players = [];
   resetYouTubeIframeApi();
   installFakeYT();
@@ -251,5 +254,16 @@ describe("PlayerPage", () => {
     expect(screen.getByRole("alert")).toHaveTextContent("HTTP 500");
     await userEvent.setup().click(screen.getByRole("button", { name: /Try again/ }));
     expect(retry).toHaveBeenCalled();
+  });
+
+  it("shows the speed control once rates arrive after ready (iOS Safari reports none at first)", async () => {
+    reportedRates = [];
+    renderAt("/watch/th000000001");
+    await screen.findByRole("button", { name: /Set A/ });
+    expect(screen.queryByRole("button", { name: "0.75×" })).not.toBeInTheDocument();
+    reportedRates = [0.5, 0.75, 1, 1.5];
+    const { player, events } = lastPlayer();
+    act(() => events.onStateChange?.({ target: player, data: 1 }));
+    expect(screen.getByRole("button", { name: "0.75×" })).toBeInTheDocument();
   });
 });

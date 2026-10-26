@@ -147,6 +147,11 @@ export function useYouTubePlayer(
               if (cancelled) return;
               const next = toPlayerState(event.data);
               setState(next);
+              // iOS Safari reports no rates until the video has actually loaded, so re-read them.
+              const rates = event.target.getAvailablePlaybackRates?.() ?? [];
+              if (rates.length > 0) {
+                setAvailableRates((prev) => (prev.join() === rates.join() ? prev : rates));
+              }
               onStateChangeRef.current?.(next);
             },
             onPlaybackRateChange: (event) => {
