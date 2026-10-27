@@ -1,0 +1,22 @@
+name: PFUITest
+options:
+  bundleIdPrefix: dev.pronunciationfocus
+  deploymentTarget: { iOS: "17.0" }
+targets:
+  Host:
+    type: application
+    platform: iOS
+    sources: [Host]
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+      INFOPLIST_KEY_UILaunchScreen_Generation: YES
+      CODE_SIGNING_ALLOWED: NO
+  FlowTests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [FlowTests]
+    dependencies: [{ target: Host }]
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+      CODE_SIGNING_ALLOWED: NO
+      TEST_TARGET_NAME: Host
