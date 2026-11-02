@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T16:49:52Z",
+  "generatedAt": "2026-11-02T08:39:16Z",
   "source": "youtube-api",
   "channels": [
     {
@@ -52,6 +52,48 @@
     }
   ],
   "videos": [
+    {
+      "id": "Jds-pXM2jmE",
+      "channelId": "UCNfm92h83W2i2ijc5Xwp_IA",
+      "channelTitle": "Pronunciation with Emma",
+      "title": "Intonation in British English: Does Your Voice Go Up or Down?",
+      "description": "",
+      "publishedAt": "2026-10-28T08:00:11Z",
+      "durationSec": 35,
+      "thumbnail": "https://i.ytimg.com/vi/Jds-pXM2jmE/mqdefault.jpg",
+      "tags": [
+        "intonation"
+      ],
+      "isShort": true
+    },
+    {
+      "id": "D5Lp2IVcilg",
+      "channelId": "UCNfm92h83W2i2ijc5Xwp_IA",
+      "channelTitle": "Pronunciation with Emma",
+      "title": "Intonation in British English (Complete Introduction with Examples)",
+      "description": "🎁 Download your FREE English Pronunciation Pack: https://bit.ly/englishpronunciationpack\n\nLearn how to use the correct intonation in English to show five different types of emotions: sarcasm, boredom, anger, excitement, and suprise. This is a quick introduction to intonation and emotion where you can listen and repeat after my intonation to improve yours.\n\n📃 Download your FREE British English Phonemic Chart: https://bit.ly/englishphonemicchart\n\n🗣️ Improve your English pronunciation FASTER wi…",
+      "publishedAt": "2026-10-26T15:00:38Z",
+      "durationSec": 307,
+      "thumbnail": "https://i.ytimg.com/vi/D5Lp2IVcilg/mqdefault.jpg",
+      "tags": [
+        "intonation"
+      ],
+      "isShort": false
+    },
+    {
+      "id": "TEKrL2XWqzs",
+      "channelId": "UCNfm92h83W2i2ijc5Xwp_IA",
+      "channelTitle": "Pronunciation with Emma",
+      "title": "\"Would, Could, Should\" in British English: Strong vs Weak Forms",
+      "description": "",
+      "publishedAt": "2026-10-26T08:00:39Z",
+      "durationSec": 54,
+      "thumbnail": "https://i.ytimg.com/vi/TEKrL2XWqzs/mqdefault.jpg",
+      "tags": [
+        "reductions"
+      ],
+      "isShort": true
+    },
     {
       "id": "qWW5_etSSHI",
       "channelId": "UCvn_XCl_mgQmt3sD753zdJA",
@@ -5429,18 +5471,6 @@
       "thumbnail": "https://i.ytimg.com/vi/mbPsvxYyaJs/mqdefault.jpg",
       "tags": [],
       "isShort": true
-    },
-    {
-      "id": "3yrtsZDSZGQ",
-      "channelId": "UCvn_XCl_mgQmt3sD753zdJA",
-      "channelTitle": "Rachel's English",
-      "title": "English Pronunciation: The Drive Thru!",
-      "description": "Take my FREE course to improve your American English here:https://tinyurl.com/free-course-892\n\nIn this English pronunciation lesson you'll come along with me to the drive through! We’ll assess all of the pronunciation aspects of my order and have fun too! English pronunciation is tricky but I’ll show you everything you need to know. \n\nLearn more: https://rachelsenglish.com/american-english-pronunciation-the-drive-thru/\n\n⭐️Get my free guide to the sounds of American English: https://rachelsengli…",
-      "publishedAt": "2024-06-25T12:00:04Z",
-      "durationSec": 2192,
-      "thumbnail": "https://i.ytimg.com/vi/3yrtsZDSZGQ/mqdefault.jpg",
-      "tags": [],
-      "isShort": false
     },
     {
       "id": "hMFoJcezum8",
